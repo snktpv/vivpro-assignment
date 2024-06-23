@@ -59,12 +59,10 @@ export default function RecordsTable() {
     return (
         <div style={{ height: '100%', width: '100%' }}>
             <Stack direction="column">
-                {/* <div style={{ height: '200px', width: '80%' }}> */}
                 <Stack direction="row" spacing={1} height="500px">
                     <DataGrid
                         columns={recordsData.cols}
                         rows={recordsData.rows}
-                        // {...recordsData.rows}
                         rowCount={recordsData.total}
                         loading={isLoading}
                         pageSizeOptions={[10]}
@@ -75,7 +73,6 @@ export default function RecordsTable() {
                             await updateRating(updatedRow.id, updatedRow.index, updatedRow.rating).then((res) => {
                                 return updatedRow;
                             }).catch((err) => { return originalRow })
-                            // return originalRow;
                         }}
                         slots={{
                             toolbar: CustomToolbar
@@ -85,7 +82,6 @@ export default function RecordsTable() {
                     />
                     <GetSongFromTitle></GetSongFromTitle>
                 </Stack>
-                {/* </div> */}
                 <Charts></Charts>
             </Stack>
         </div>
